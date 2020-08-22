@@ -9,12 +9,17 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
+    public $perPage = 5;
+    public $tweetId;
 
-    public $perPage = 3;
+    protected $listeners = ['tweetAdded'];
+
+    public function tweetAdded($tweetId)
+    { }
 
     public function loadMore()
     {
-        $this->perPage += 3;
+        $this->perPage += 10;
     }
 
     public function render()
