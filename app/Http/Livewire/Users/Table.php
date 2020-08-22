@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class Table extends Component
 {
     use WithPagination;
+
     public $updateQueryString = ['page'];
     public $perPage = 10;
     public $query = '';
@@ -18,6 +19,7 @@ class Table extends Component
         $users = User::where('name', 'like', "%$this->query%")
             ->orWhere('username', 'like', "%$this->query%")
             ->orWhere('occupation', 'like', "%$this->query%")
+            ->orWhere('email', 'like', "%$this->query%")
             ->latest()
             ->paginate($this->perPage);
 
