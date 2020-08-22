@@ -19,4 +19,5 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/', 'HomeController')->name('home');
+    Route::livewire('users/table', 'users.table')->layout('layouts.app');
 });
