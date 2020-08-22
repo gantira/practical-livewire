@@ -26,6 +26,7 @@ class Add extends Component
         ]);
 
         $this->body = '';
+        session()->flash('message', 'Your tweet was updated.');
 
         $this->emit('tweetAdded', $tweet->id);
     }

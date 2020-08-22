@@ -1,5 +1,5 @@
 <div>
-    <div class="card ">
+    <div class="card">
         <div class="card-header">Timeline</div>
         <div class="card-body">
             @foreach ($tweets as $tweet)
