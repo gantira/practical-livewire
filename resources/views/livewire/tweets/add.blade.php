@@ -6,9 +6,12 @@
                 <div class="form-group">
                     <textarea style="resize: none" class="form-control" placeholder="What's on your mind ?" wire:model="body">
                     </textarea>
+                    @error('body')
+                        <div class="mt-2 text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="btn btn-primary">Tweet</button>
+                    <button type="submit" class="btn btn-primary" @error('body') disabled @enderror>Tweet</button>
                 </div>
             </form>
         </div>

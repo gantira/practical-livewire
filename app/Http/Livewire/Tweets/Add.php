@@ -8,10 +8,19 @@ class Add extends Component
 {
     public $body;
 
-
+    public function updated($fields)
+    {
+        $this->validateOnly($fields,[
+            'body' => 'max:255|min:3'
+        ]);
+    }
 
     public function addTweet()
     {
+        $this->validate([
+            'body' => 'required|max:255'
+        ]);
+
         $tweet = auth()->user()->tweets()->create([
             'body' => $this->body
         ]);
